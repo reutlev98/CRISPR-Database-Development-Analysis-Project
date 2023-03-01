@@ -52,4 +52,6 @@ This Bash script processes data for CRISPR-Cas9 gene editing experiments using t
 
 The script produces a log file with the name specified in the log_file variable. The crispector tool produces output files in the same directory as the script, with names based on the experiment name and configuration file name
 
+# to_bed_format.sh
+This script converts the identifier file (fron the GUIDEseq output) to a BED format file
 
