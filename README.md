@@ -37,4 +37,19 @@ The input CSV file (dataFileForMainScript.csv) should contain one experiment per
 
 The output of the script is automatically saved in the current working directory with a filename based on the experiment name and amplicon name. The log file (crispector_log) is also generated in the current working directory.
 
+# crispector.sh
+This Bash script processes data for CRISPR-Cas9 gene editing experiments using the "crispector" tool. It reads input data from a CSV file and runs the "crispector" command on each row of the file, producing output files and logging messages.
+
+- Input data file in CSV format with the following columns:
+1. Experiment name (string)
+2. Mock sample name (string)
+3. Configuration file name (string)
+-Input data files in FASTQ format with the following naming conventions:
+1. Experiment read 1: {experiment_name}_R1.fq.gz
+2. Experiment read 2: {experiment_name}_R2.fq.gz
+3. Mock read 1: {mock_name}_R1.fq.gz
+4. Mock read 2: {mock_name}_R2.fq.gz
+
+The script produces a log file with the name specified in the log_file variable. The crispector tool produces output files in the same directory as the script, with names based on the experiment name and configuration file name
+
 
