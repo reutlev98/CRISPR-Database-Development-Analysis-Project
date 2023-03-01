@@ -2,7 +2,7 @@
 third year project
 
 # guideseqScriptByFile.sh
-defining some variables:
+defining variables:
 
 1. File is the name of a CSV file containing information about the samples (Folder, Duplicate, and target)
 2. superFolfder is the name of the directory containing the FASTQ files
@@ -21,6 +21,20 @@ the script:
 - Writes the log output to the log_file
 
 # CRISPResso.sh
+This Bash script is designed to automate CRISPR analysis using CRISPRessoPooled on multiple experiments and amplicons listed in a CSV file.
+defining variables:
+1. File: the name of the input CSV file
+2. log_file: the name of the log file to be generated
+3. GENOME: the path to the genome reference file
 
+The input CSV file (dataFileForMainScript.csv) should contain one experiment per row with the following columns:
+
+1. Experiment name (e.g., "exp1")
+2. Path to the forward read file in gzipped FASTQ format (e.g., "exp1_1.fastq.gz")
+3. Path to the reverse read file in gzipped FASTQ format (e.g., "exp1_2.fastq.gz")
+4. Path to the amplicon sequence file in FASTA format (e.g., "amplicons.fasta")
+5.Name of the amplicon being analyzed (e.g., "amplicon1")
+
+The output of the script is automatically saved in the current working directory with a filename based on the experiment name and amplicon name. The log file (crispector_log) is also generated in the current working directory.
 
 
