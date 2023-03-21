@@ -2,7 +2,7 @@
 File="dataFileForMainScript.csv"
 superFolfder="ALL_GS_FASTQ"
 pythonScript="/home/shir/anaconda3/envs/guideseq/bin/guideseq.py"
-genom="/home/shir/Documents/project/genome/genome/hg38.fa"
+genom="/home/labhendel/Documents/genome/GCA_000001405.15_GRCh38_no_alt_analysis_set/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna"
 outfolder="0.4_10_params"
 min_quality="10"
 min_frequency="0.4"
