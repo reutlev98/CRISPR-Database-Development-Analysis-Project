@@ -86,10 +86,10 @@ try:
     print("done:", table_name)
 
     # Insert data from guide_seq_data Excel file into guide_seq_data table
-    # excel_file = 'guide_seq_data.xlsx'
-    # table_name = 'guide_seq_data'
-    # insert_data(excel_file, table_name)
-    # print("done:", table_name)
+     excel_file = 'guide_seq_data.xlsx'
+     table_name = 'guide_seq_data'
+     insert_data(excel_file, table_name)
+     print("done:", table_name)
 
 except pymysql.Error as e:
     print(f"MySQL Error: {e}")
