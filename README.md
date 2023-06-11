@@ -1,4 +1,4 @@
-# genomProject
+# Project
 third year project
 
 
