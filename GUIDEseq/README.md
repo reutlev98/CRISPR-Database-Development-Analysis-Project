@@ -16,3 +16,23 @@ the script:
 - Uses the guideseq.py script to process the FASTQ files for the sample
 - Performs UMI tagging, consolidation, alignment, identification of off-target sites, and visualization of the results using the guideseq.py script.
 - Writes the log output to the log_file
+
+
+# to_bed_format.sh
+defining variables:
+
+1. readFolder - A folder with GUIDEseq analysis result files (identifiedOfftargets)
+2. newFolder - Defining a name for a new folder where the OUTPUT files will be
+
+the script:
+This script goes through the GUIDEseq analysis results (identifiedOfftargets) and exports specific columns to create a file in BED format. 
+- BED_Chromosome
+- BED_Min.Position
+- BED_Max.Position
+- BED_Name
+- Site_SubstitutionsOnly.Strand
+- Site_GapsAllowed.Strand
+- Site_SubstitutionsOnly.Sequence
+- Site_GapsAllowed.Sequence
+- Cell
+- TargetSequence
