@@ -30,5 +30,11 @@ This Bash script processes data for CRISPR-Cas9 gene editing experiments using t
 
 The script produces a log file with the name specified in the log_file variable. The crispector tool produces output files in the same directory as the script, with names based on the experiment name and configuration file name
 
-# to_bed_format.sh
-This script converts the identifier file (fron the GUIDEseq output) to a BED format file
+# convert_CSV_to_txt.sh
+A script that converts CSV files to a TXT file.
+
+# convert_crispector_config_to_crispresso2.sh
+A script that converts crispector config files to CRISPResso2 config files.
+defining variables:
+1. readFolder - refers to the directory where the crispector config files are stored.
+2. newFolder - name of the directory where the CRISPResso2 configuration files will be stored
