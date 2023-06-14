@@ -1,4 +1,7 @@
 #max of off target by Chromosome
-SELECT max(`#BED_Chromosome`),count(`#BED_Chromosome`), min_frequency, min_quality FROM Hendel_Lab.guide_seq_data, Hendel_Lab.analysis_parameters
-where AnalysisParametersId = IDanalysis_parameters
-group by min_frequency, min_quality;
+SELECT count(`#BED_Chromosome`) AS chromosome_count, min_frequency, min_quality, `#BED_Chromosome`
+FROM Hendel_Lab.guide_seq_data
+JOIN Hendel_Lab.analysis_parameters ON AnalysisParametersId = IDanalysis_parameters
+GROUP BY min_frequency, min_quality, `#BED_Chromosome`
+ORDER BY chromosome_count DESC
+LIMIT 3;
