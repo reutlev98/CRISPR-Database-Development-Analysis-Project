@@ -1,0 +1,69 @@
+<!-- upload.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Data</title>
+    <link rel="stylesheet" type="text/css" href="upload.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('form').on('submit', function (event) {
+                event.preventDefault();
+                var form = $('form')[0];
+                var formData = new FormData(form);
+                $.ajax({
+                    url: ' http://127.0.0.1:5000/upload',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                            if (response.success) {
+                                console.log('Upload success');
+                                 alert('Upload success');
+                                // Additional success handling
+                            } else {
+                                console.log('Upload failed');
+                                 alert('Error: Upload failed');
+                                // Additional failure handling
+                            }
+                        },
+                    error: function (xhr, status, error) {
+                        console.log(xhr.status); // Log the HTTP status code of the error response
+                        alert('Error: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+    <h1>Upload Data</h1>
+
+        <label for="VerPackage">Version Package:</label>
+        <input type="text" name="VerPackage" id="VerPackage" value="guide-seq 1.0.2"><br><br>
+
+        <label for="VerPython">Version Python:</label>
+        <input type="text" name="VerPython" id="VerPython" value="Python 3"><br><br>
+
+        <label for="min_frequency">Min Frequency:</label>
+        <input type="text" name="min_frequency" id="min_frequency"><br><br>
+
+        <label for="min_quality">Min Quality:</label>
+        <input type="text" name="min_quality" id="min_quality"><br><br>
+
+        <label for="fileInput">File:</label>
+        <input type="file" name="fileInput" id="fileInput" multiple><br><br>
+
+        <label for="fileInputParam">file Param:</label>
+        <input type="file" name="fileInputParam" id="fileInputParam"><br><br>
+
+
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
