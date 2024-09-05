@@ -1,5 +1,5 @@
 # GUIDE-Seq Data Uploader
-This is a simple Flask web application designed to upload GUIDE-Seq data into a MySQL database. The uploaded data includes files with experimental results and relevant parameters. The application processes the data and inserts it into the database for further analysis and retrieval.
+This Flask web application allows users to upload GUIDE-Seq data into a MySQL database. It processes experimental results and relevant parameters from uploaded files and inserts the data into the database for further analysis and retrieval.
 
 ## Fill in the required information:
 - Version Of Package: Enter the version of the GUIDE-Seq package used (e.g. "guide-seq 1.0.2").
