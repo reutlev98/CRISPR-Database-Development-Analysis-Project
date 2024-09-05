@@ -41,6 +41,15 @@ The input CSV should include:
 - Results are saved in the current directory with filenames based on the experiment and amplicon names.
 - A log file (`crispector_log`) records the progress and any issues encountered during processing.
 
+#### Usage Example of **CRISPResso2 Analysis**:
+   - Prepare your CSV file listing all experiments.
+   - Run the `CRISPResso2_script.sh` to automate the analysis:
+     ```bash
+     bash CRISPResso2_script.sh
+     ```
+   - Results will be saved in the current directory, with a log file to track the progress.
+
+
 ### `crispector_script.sh`
 
 This script processes CRISPR-Cas9 data using **Crispector**, which analyzes off-target editing events by comparing CRISPR-edited samples to control (mock) samples.
@@ -57,6 +66,12 @@ This script processes CRISPR-Cas9 data using **Crispector**, which analyzes off-
 #### Output:
 - Crispector generates detailed output files based on the experiment name and configuration file, logging the analysis progress into the specified log file.
 
+#### Usage Example of **Crispector Analysis**:
+   - Use `crispector_script.sh` to process your experiments:
+     ```bash
+     bash crispector_script.sh
+     ```
+
 ### `convert_CSV_to_txt.sh`
 
 This simple Bash script converts CSV files into TXT format for downstream processing. It reads the specified CSV file and outputs a plain-text version, useful for situations where TXT format is required for further analysis or input into other tools.
@@ -67,6 +82,12 @@ This simple Bash script converts CSV files into TXT format for downstream proces
 #### Output:
 - The converted file is saved in TXT format in the same directory.
 
+#### Usage Example 
+- Use `convert_CSV_to_txt.sh` for simple CSV to TXT conversions:
+     ```bash
+     bash convert_CSV_to_txt.sh
+     ```
+
 ### `convert_crispector_config_to_crispresso2.sh`
 
 This script automates the conversion of **Crispector** configuration files into the format required by **CRISPResso2**, enabling easy transfer of experimental settings between the two tools.
@@ -75,30 +96,9 @@ This script automates the conversion of **Crispector** configuration files into 
 1. **readFolder**: Directory containing the Crispector configuration files.
 2. **newFolder**: Directory where the converted CRISPResso2 configuration files will be saved.
 
----
-
-## Usage Example
-
-1. **CRISPResso2 Analysis**:
-   - Prepare your CSV file listing all experiments.
-   - Run the `CRISPResso2_script.sh` to automate the analysis:
-     ```bash
-     bash CRISPResso2_script.sh
-     ```
-   - Results will be saved in the current directory, with a log file to track the progress.
-
-2. **Crispector Analysis**:
-   - Use `crispector_script.sh` to process your experiments:
-     ```bash
-     bash crispector_script.sh
-     ```
-
-3. **File Conversion**:
-   - Use `convert_CSV_to_txt.sh` for simple CSV to TXT conversions:
-     ```bash
-     bash convert_CSV_to_txt.sh
-     ```
-   - Use `convert_crispector_config_to_crispresso2.sh` to convert configuration files:
+#### Usage Example 
+- Use `convert_crispector_config_to_crispresso2.sh` to convert configuration files:
      ```bash
      bash convert_crispector_config_to_crispresso2.sh
      ```
+
