@@ -1,5 +1,5 @@
 
-### GUIDE-seq Overview and Script Explanation
+# GUIDE-seq Overview and Script Explanation
 
 **GUIDE-seq** (Genome-wide Unbiased Identification of DSBs Evaluated by Sequencing) is a genome-editing analysis tool used to detect both on-target and off-target double-strand breaks (DSBs) induced by CRISPR-Cas9. By incorporating a short double-stranded oligonucleotide (dsODN) into DSB sites, GUIDE-seq identifies unintended edits across the genome, making it a critical tool for ensuring the precision and safety of genome-editing experiments.
 
@@ -52,3 +52,47 @@ This BED file is essential for visualizing genomic intervals and off-target site
 
 #### Goal of the Script:
 The goal of the `GUIDEseqScriptByFile.sh` script is to automate the processing of raw sequencing data and streamline the identification of off-target sites in genome editing experiments. By using a combination of UMI-based read consolidation and precise genome alignment, the script aims to enhance the accuracy and reliability of CRISPR-Cas9 off-target detection. This process is crucial for improving the specificity and safety of genome-editing technologies, which is particularly important in clinical and research applications.
+
+# comparisons.py: BED File Comparison for Off-Target Detection
+
+## Overview
+
+`comparisons.py` is a Python script designed to compare two BED files containing genomic data, typically from GUIDE-seq experiments. It identifies overlapping and non-overlapping regions between two experiments to detect differences in off-target editing sites.
+
+## Purpose
+
+The primary goal of this script is to:
+- **Compare two sets of BED files**: These files contain genomic intervals representing detected off-target sites.
+- **Identify overlapping regions**: The script detects whether off-target regions overlap across different experimental conditions.
+- **Highlight differences**: It outputs regions that do not overlap between the two datasets, indicating differences in off-target detection between experiments.
+
+
+## Functionality
+
+### `comper(bed1, bed2, output, x='', y='', header=True)`
+- **Parameters**:
+  - `bed1` and `bed2`: Paths to the two BED files to compare.
+  - `output`: Name of the output file where differences are saved.
+  - `x`, `y`: Optional labels to distinguish columns from each file.
+  - `header`: Boolean to include the header in the output (default `True`).
+- **Process**:
+  - Reads both BED files and merges them based on chromosomes.
+  - Checks for overlapping genomic regions between the two files.
+  - Filters out overlaps and outputs non-overlapping (different) regions.
+
+### Script Workflow
+- Iterates over files in two directories (`bedformat-X` and `bedformat-Y`).
+- Compares corresponding files using `comper()` and appends differences to the output.
+
+## Usage
+
+1. **Prepare directories**: Place BED files from each experiment in `bedformat-X` and `bedformat-Y`.
+2. **Run the script**:
+   ```bash
+   python comparisons.py
+   ```
+3. **Output**: Differences are saved in a file named `X_Y`.
+
+## Dependencies
+- **Python 3.x**
+- **pandas**, **numpy**, **os**
