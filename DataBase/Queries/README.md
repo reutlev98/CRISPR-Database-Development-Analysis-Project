@@ -70,4 +70,4 @@ This document provides an overview of how to use SQL queries to analyze experime
 
 ## Additional Information
 
-For detailed instructions and further information on using these queries, please refer to the [[Queries Documentation](DataBase/Queries/Results.pdf)].
+For detailed instructions and further information on using these queries, please refer to the [Queries Documentation](https://github.com/reutlev98/CRISPR-Database-Development-Analysis-Project/blob/789c82f8b7758850d2fa75306dcecbcc48445007/DataBase/Queries/Results.pdf).
