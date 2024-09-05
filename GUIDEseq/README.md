@@ -1,38 +1,54 @@
-# guideseqScriptByFile.sh
-defining variables:
 
-1. File is the name of a CSV file containing information about the samples (Folder, Duplicate, and target)
-2. superFolfder is the name of the directory containing the FASTQ files
-3. pythonScript is the path to the guideseq.py Python script used for processing the data
-4. genom is the path to the reference genome used for alignment
-5. outfolder is the name of the output directory where the results will be saved
-6. min_quality is the minimum quality score allowed for a base to be considered in the analysis
-7. min_frequency is the minimum frequency of a mutation to be considered in the analysis
-8. log_file is the name of a file where the logs will be written
-The script then reads each line of the CSV file using a while loop, where each line contains information about a sample (Folder, Duplicate, and target). For each sample, the script performs the following steps:
+### GUIDE-seq Overview and Script Explanation
 
-the script:
-- Extracts the Folder, Duplicate, and target information from the CSV file
-- Uses the guideseq.py script to process the FASTQ files for the sample
-- Performs UMI tagging, consolidation, alignment, identification of off-target sites, and visualization of the results using the guideseq.py script.
-- Writes the log output to the log_file
+**GUIDE-seq** (Genome-wide Unbiased Identification of DSBs Evaluated by Sequencing) is a genome-editing analysis tool used to detect both on-target and off-target double-strand breaks (DSBs) induced by CRISPR-Cas9. By incorporating a short double-stranded oligonucleotide (dsODN) into DSB sites, GUIDE-seq identifies unintended edits across the genome, making it a critical tool for ensuring the precision and safety of genome-editing experiments.
 
+The **GUIDE-seq tool** processes raw sequencing data (in FASTQ format) to pinpoint off-target sites and includes the following core features:
+- **Demultiplexing**: Separates sequences by barcode to differentiate samples.
+- **UMI Tagging**: Uses Unique Molecular Identifiers (UMIs) to eliminate PCR duplicates, ensuring more accurate results.
+- **Alignment**: Aligns reads to the reference genome to identify precise edit locations.
+- **Off-target Identification**: Detects candidate off-target sites using algorithms like **Smith-Waterman**.
+- **Visualization**: Graphically presents off-target sites compared to on-target sequences.
 
-# to_bed_format.sh
-defining variables:
+You can explore the GUIDE-seq tool further through its [GitHub repository](https://github.com/tsailabSJ/guideseq), where you’ll find installation guidelines and detailed documentation.
 
-1. readFolder - A folder with GUIDEseq analysis result files (identifiedOfftargets)
-2. newFolder - Defining a name for a new folder where the OUTPUT files will be
+### GUIDE-seq Processing Script: `guideseqScriptByFile.sh`
 
-the script:
-This script goes through the GUIDEseq analysis results (identifiedOfftargets) and exports specific columns to create a file in BED format. 
-- BED_Chromosome
-- BED_Min.Position
-- BED_Max.Position
-- BED_Name
-- Site_SubstitutionsOnly.Strand
-- Site_GapsAllowed.Strand
-- Site_SubstitutionsOnly.Sequence
-- Site_GapsAllowed.Sequence
-- Cell
-- TargetSequence
+The script `guideseqScriptByFile.sh` is a bash script designed to automate the processing of GUIDE-seq data, which is used for detecting genome editing off-target effects. It integrates with a Python-based tool (`guideseq.py`) and a reference genome for aligning and analyzing sequencing data.
+
+#### Key Variables Defined:
+- **File**: Refers to a CSV file containing metadata about the samples, such as:
+  - **Folder**: Directory where the sample's raw sequencing data (FASTQ files) are stored.
+  - **Duplicate**: Replicate information of the sample.
+  - **Target**: Genetic target that the sample is intended to edit or analyze.
+- **superFolder**: Directory where all the raw FASTQ files reside.
+- **pythonScript**: Path to the `guideseq.py` script responsible for running GUIDE-seq analysis.
+- **genome**: Path to the reference genome file used for aligning the sequencing reads.
+- **outFolder**: Output directory where the processed data will be saved.
+- **min_quality**: Minimum quality score threshold for considering a sequencing base valid during analysis.
+- **min_frequency**: Minimum frequency threshold for including a mutation in the final analysis.
+- **log_file**: File to log the process and analysis details for each sample.
+
+#### Execution Flow:
+1. **Sample Processing**:
+   - The script loops over each line in the CSV file (`File`), extracting the sample information such as Folder, Duplicate, and target.
+   - For each sample, the script:
+     - Calls the Python script `guideseq.py` to process the corresponding FASTQ files.
+     - Performs operations such as **UMI tagging**, **consolidation**, **alignment**, and **identification of off-target sites**.
+     - Logs the process details into the specified log file.
+
+2. **UMI Tagging and Alignment**:
+   - Unique Molecular Identifiers (UMIs) are used to tag and identify duplicate reads, ensuring that sequencing errors are minimized.
+   - The aligned reads are checked for off-target editing using the reference genome to identify potential sites outside the intended target (off-target).
+
+#### BED File Creation with `to_bed_format.sh`:
+This script extracts specific data from the GUIDE-seq analysis to generate a **BED file**, a standard format used for genome annotations. The file includes columns such as:
+- **BED_Chromosome**: Chromosome where the off-target effect was detected.
+- **BED_Min.Position**: Start position of the off-target region.
+- **BED_Max.Position**: End position of the off-target region.
+- **Site Sequences**: Sequences with and without substitutions and gaps, showing the exact off-target variations.
+
+This BED file is essential for visualizing genomic intervals and off-target sites in genome browsers, enabling more precise comparisons of the on-target versus off-target effects.
+
+#### Goal of the Script:
+The goal of the `GUIDEseqScriptByFile.sh` script is to automate the processing of raw sequencing data and streamline the identification of off-target sites in genome editing experiments. By using a combination of UMI-based read consolidation and precise genome alignment, the script aims to enhance the accuracy and reliability of CRISPR-Cas9 off-target detection. This process is crucial for improving the specificity and safety of genome-editing technologies, which is particularly important in clinical and research applications.
