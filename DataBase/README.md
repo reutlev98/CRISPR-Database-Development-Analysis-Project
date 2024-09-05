@@ -17,6 +17,10 @@ The database consists of approximately 8 tables. The central table is **guide_se
 
 ## Database Schema
 
+![schema](https://github.com/user-attachments/assets/8fe8f3a4-6f52-47e7-bbff-2eee86b13b29)
+
+
+
 **Tables:**
 
 1. **CELL**: Contains information about cell types used in experiments.
@@ -50,7 +54,7 @@ For more information, see the [Upload New Data folder](DataBase/UploadNewData).
 
 ## Additional Resources
 
-- [MySQL Installation Guide.pdf](DataBase/MySQL Installation Guide.pdf): Instructions for installing MySQL.
-- [MySQL Connection via VPN.pdf](DataBase/MySQL connection via VPN.pdf): Guide for connecting to MySQL via VPN.
+- [DataBase/MySQL Installation Guide.pdf](https://github.com/reutlev98/CRISPR-Database-Development-Analysis-Project/blob/2a1eaffd1f653a77e0de611345c2f7eb63fe2336/DataBase/MySQL%20Installation%20Guide.pdf): Instructions for installing MySQL.
+- [DataBase/MySQL connection via VPN.pdf](https://github.com/reutlev98/CRISPR-Database-Development-Analysis-Project/blob/87f5b59c79c95233cc9028d04211385c088d33f2/DataBase/MySQL%20connection%20via%20VPN.pdf): Guide for connecting to MySQL via VPN.
 
 
