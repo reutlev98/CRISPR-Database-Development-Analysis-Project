@@ -38,7 +38,7 @@ For detailed schema information, refer to the [Schema Documentation](DataBase/DA
 
 In the **DatabaseFiles** folder, you will find SQL files for creating tables and loading information into the database via MySQL.
 
-For more information, see the [DatabaseFiles folder]([DataBase/DatabaseFiles](https://github.com/reutlev98/CRISPR-Database-Development-Analysis-Project/tree/76b52a76c1bea5a325ede3f49a596893d0e462c1/DataBase/DatabaseFiles)).
+For more information, see the [DatabaseFiles folder](https://github.com/reutlev98/CRISPR-Database-Development-Analysis-Project/tree/76b52a76c1bea5a325ede3f49a596893d0e462c1/DataBase/DatabaseFiles).
 
 ## Queries
 
