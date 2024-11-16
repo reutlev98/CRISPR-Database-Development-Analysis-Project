@@ -44,13 +44,13 @@ For more information, see the [DatabaseFiles folder](https://github.com/reutlev9
 
 The **Queries** folder contains SQL queries designed for analyzing the data in the database.
 
-For more information, see the [Queries folder](DataBase/Queries).
+For more information, see the [Queries folder]([DataBase/Queries](https://github.com/reutlev98/CRISPR-Database-Development-Analysis-Project/tree/76b52a76c1bea5a325ede3f49a596893d0e462c1/DataBase/Queries)).
 
 ## Uploading New Data
 
 The **UploadNewData** tool facilitates the uploading of new data into the database. The web interface allows users to input parameters and upload files.
 
-For more information, see the [Upload New Data folder](DataBase/UploadNewData).
+For more information, see the [Upload New Data folder]([DataBase/UploadNewData](https://github.com/reutlev98/CRISPR-Database-Development-Analysis-Project/tree/76b52a76c1bea5a325ede3f49a596893d0e462c1/DataBase/UploadNewData)).
 
 ## Additional Resources
 
